@@ -1,0 +1,29 @@
+<html>
+<head>
+ <title>HTML COMPILER</title>
+<script>
+function compileHTML(field,e){
+document.getElementById('output').innerHTML=field.value;
+
+}
+function compileCSS(field,e){
+document.getElementById('styling').innerHTML=field.value;
+
+}
+</script>
+
+</head>
+<style id="styling">
+
+</style>
+
+<body>
+<div style="display:flex;">
+<textarea style="flex:1;height:300px;font-size:50px;" placeholder="Type Html Code Here..." onkeyup="compileHTML(this)"></textarea>
+<textarea style="flex:1;height:300px;font-size:50px;" placeholder="Type CSS Code Here..." onkeyup="compileCSS(this)"></textarea>
+</div>
+<div id="output"></div>
+
+
+</body>
+</html>
