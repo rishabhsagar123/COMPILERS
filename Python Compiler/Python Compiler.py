@@ -1,9 +1,15 @@
 from tkinter import *
 from tkinter.filedialog import asksaveasfilename, askopenfilename
+from tkinter import messagebox
 import subprocess
 
+
+
+
 compiler = Tk()
-compiler.title('Python Compiler')
+compiler.title('PyPal')
+
+
 file_path = ''
 
 
@@ -32,17 +38,19 @@ def save_as():
         set_file_path(path)
 
 
+
 def run():
     if file_path == '':
-        save_prompt = Toplevel()
-        text = Label(save_prompt, text='Please save your code')
-        text.pack()
-        return
+      messagebox.showinfo("Alert","Please Save the File First!!")  
+      return
+       
     command = f'python {file_path}'
     process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
     output, error = process.communicate()
     code_output.insert('1.0', output)
     code_output.insert('1.0',  error)
+
+
 
 
 menu_bar = Menu(compiler)
@@ -60,11 +68,22 @@ menu_bar.add_cascade(label='Run', menu=run_bar)
 
 compiler.config(menu=menu_bar)
 
+
 editor = Text()
+Font_tuple = ("Comic Sans MS", 10, "bold")
+editor.configure(font = Font_tuple,foreground="red")
 editor.pack()
 
 code_output = Text(height=10)
+Fonter_tuple = ("Comic Sans MS", 15, "bold")
+code_output.configure(font = Fonter_tuple,foreground="blue") 
 code_output.pack()
 
+
+          
+
+
+
 compiler.mainloop()
+
 
