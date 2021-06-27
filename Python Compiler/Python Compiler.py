@@ -59,7 +59,6 @@ file_menu = Menu(menu_bar, tearoff=0)
 file_menu.add_command(label='Open', command=open_file)
 file_menu.add_command(label='Save', command=save_as)
 file_menu.add_command(label='Save As', command=save_as)
-file_menu.add_command(label='Exit', command=exit)
 menu_bar.add_cascade(label='File', menu=file_menu)
 
 run_bar = Menu(menu_bar, tearoff=0)
